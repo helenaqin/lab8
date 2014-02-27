@@ -1,3 +1,4 @@
+
 var projects = require('../projects.json');
 
 /*
@@ -5,5 +6,11 @@ var projects = require('../projects.json');
  */
 
 exports.view = function(req, res){
-  	res.render('index', projects);
+  	project_info = {'grid': false, 'projects_test': projects['projects']};
+  	res.render('index', project_info);
+};
+
+exports.viewGrid = function(req, res){
+  	project_info = {'grid': true, 'projects': projects['projects']};
+	res.render('index', project_info);
 };
